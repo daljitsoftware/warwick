@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+<script src="./scripts/jquery.min.js"></script>
+<script>
+function loadUsers()
+{
+	$.get( "http://jsonplaceholder.typicode.com/users", function( data ) {
+           var str = "<div>";
+           for(var i = 0; i < data.length; i++)
+{
+		var user = data[i];
+                str += "<div>" + user.username + "</div>";
+}
+        str += "</div>";
+	$('#users').html(str);
+       });
+}
+
+</script>
+</head>
+
+<body>
+   This is Warick ic systems.
+   Click the button to download the users -
+   <input type="button" value="View Users" onclick="loadUsers()" />
+   <div id="users"></div>
+</body>
+
+</html>
